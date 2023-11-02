@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 var titleInput = document.querySelector("#search-input");
 var plot = "666"
+var year = ""
+var movieTitle = ""
 // create api function using fetch then return
 
 var getOmdb = function (title) {
@@ -58,9 +60,18 @@ var getOmdb = function (title) {
       return response.json()
     })
     .then(function (data) {
-      plot = data.Plot;
+      movieTitle = data.Title;
+      var movieTitleInfo = document.querySelector("#title");
+      movieTitleInfo.textContent = movieTitle;
+
+        plot = data.Plot;
       var plotInfo = document.querySelector("#plot");
-      plotInfo.textContent = plot;
+      plotInfo.textContent = "Plot description: " + plot;
+
+      year = data.Year;
+      var yearInfo = document.querySelector("#year");
+      yearInfo.textContent = "Year released: " + year;
     })
 }
+
 
