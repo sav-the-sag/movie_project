@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
       $trigger.addEventListener('click', () => {
         openModal($target);
+      console.log(5)
       });
     });
   
@@ -40,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
+  
 var omdbApiUrl="http://www.omdbapi.com/?apikey="+omdbApiKey+"&t="+title+"&type=movie&plot=short";
-var title
+var title="";
+
+// create
