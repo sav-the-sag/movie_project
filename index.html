@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
-    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Movie Project</title>
 </head>
+
 <body>
     <section class="hero is-success">
         <div class="hero-body">
-          <p class="title">
-            Welcome to your movie journal!
-          </p>
-          <p class="subtitle">
-            Success subtitle
-          </p>
+            <p class="title">
+                Welcome to your movie journal!
+            </p>
+            <p class="subtitle">
+                Success subtitle
+            </p>
         </div>
-      </section>
+    </section>
     <main>
         <div class="tile is-ancestor">
             <div class="tile is-parent">
                 <article class="tile is-child notification is-danger">
-                  <div class="content">
-                    <p class="title">Search:</p>
-                    <input class="input is-primary" type="text" placeholder="Movie title">
-                    <button class="button is-primary js-modal-trigger" data-target="modal-js-example">Search</button>
-                    <p class="subtitle">With even more content</p>
-                    <div class="content" id="search-history">
-                        <button class="button is-link">Movie 1</button>
-                        <button class="button is-link">Movie 2</button>
-                      <!-- Content - anchors  -->
+                    <div class="content">
+                        <p class="title">Search:</p>
+                        <input class="input is-primary" type="text" placeholder="Movie title">
+                        <button class="button is-primary js-modal-trigger"
+                            data-target="modal-js-example">Search</button>
+                        <p class="subtitle">With even more content</p>
+                        <div class="content" id="search-history">
+                            <button class="button is-link">Movie 1</button>
+                            <button class="button is-link">Movie 2</button>
+
+                            <!-- Content - anchors  -->
+                        </div>
                     </div>
-                  </div>
                 </article>
-              </div>
-               <div class="tile is-vertical is-8 is-parent">
-                  <article class="tile is-child notification is-info">
+            </div>
+            <div class="tile is-vertical is-8 is-parent">
+                <article class="tile is-child notification is-info">
                     <p class="title">Movie Title</p>
                     <p>rating</p>
                     <p>comments</p>
@@ -44,8 +48,8 @@
                     <p>youtube trailer link</p>
                     <figure class="image is-4by3">
                     </figure>
-                  </article>
-                  <article class="tile is-child notification is-info">
+                </article>
+                <article class="tile is-child notification is-info">
                     <p class="title">Modal</p>
                     <p>rating</p>
                     <p>comments</p>
@@ -53,22 +57,48 @@
                     <p>youtube trailer link</p>
                     <figure class="image is-4by3">
                     </figure>
-                  </article>
-                </div>
-          </div>
-          <div id="modal-js-example" class="modal">
-            <div class="modal-background"></div>
-          
-            <div class="modal-content">
-              <div class="box">
-                <p>Modal JS example</p>
-                <!-- Your content -->
-              </div>
+                </article>
             </div>
-          
+        </div>
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+
+            <div class="modal-content">
+                <div class="box">
+                    <h2>Movie Info</h2>
+                    <!-- Your content -->
+                    <span class="plot"></span>
+                    <span class="youtube"></span>
+                    <textarea class="textarea" placeholder="Input Comments Here" rows="5"></textarea>
+                    <div class="control">
+                        <label class="radio">
+                            <input type="radio" name="rsvp">
+                            1 Star
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="rsvp">
+                            2 Stars
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="rsvp">
+                            3 Stars
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="rsvp">
+                            4 Stars
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="rsvp" checked>
+                            5 Stars
+                        </label>
+                    </div>
+                    <button class="button" type="sumbit">Submit</button>
+                </div>
+            </div>
+
             <button class="modal-close is-large" aria-label="close"></button>
-          </div>
-          <!--<div class="modal">
+        </div>
+        <!--<div class="modal">
       <div class="modal-background"></div>
       <div class="modal-card">
         <header class="modal-card-head">
@@ -85,8 +115,9 @@
       </div>
     </div>-->
     </main>
-    
-    
-<script src="./assets/js/script.js"></script>
+
+
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
