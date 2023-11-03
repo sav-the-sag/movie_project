@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       var title = titleInput.value;
       openModal($target);
       getOmdb(title);
+      getYoutube(title);
     });
   });
 
@@ -73,15 +74,18 @@ var getOmdb = function (title) {
       yearInfo.textContent = "Year released: " + year;
     })
 }
+var idk = 'movie trailer'
 
 function getYoutube(title) {
-  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search&key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + 'movie trailer';
+  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + idk;
 
   fetch(youtubeApiUrl)
     .then(function(response) {
       return response.json()
     })
     .then(function (data) {
-      
+      var videoID = data.items[0].id.videoId
+      console.log(videoID)
+
     })
 }
