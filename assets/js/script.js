@@ -59,6 +59,7 @@ var titleInput = document.querySelector("#search-input");
 var plot = "666"
 var year = ""
 var movieTitle = ""
+var linkForTrailer=""
 // create api function using fetch then return
 
 var getOmdb = function (title) {
@@ -98,16 +99,26 @@ function getYoutube(title) {
       var trailerLink = document.querySelector('#youtube')
 
       trailerLink.setAttribute('href', linkForTrailer)
-      var linkForTrailer='https://www.youtube.com/watch?v=' + videoID
+      linkForTrailer='https://www.youtube.com/watch?v=' + videoID
     })
 }
 
-function addingDataLocalStorage(){
-  movieTitle
-  plot
-  year
-  linkForTrailer
-  userComments
-
-
+function addingDataLocalStorage(event){
+  event.preventDefault();  
+  var userComments=document.querySelector('#userInputComments').value;
+  var newMovie=Object.create(movieObject)
+  newMovie.movieTitle=movieTitle
+  newMovie.plot=plot
+  newMovie.year=year
+  newMovie.linkForTrailer=linkForTrailer
+  newMovie.userComments=userComments
+  console.log(newMovie)
+  
 }
+
+var submitBtn = document.querySelector('#submitBtn')
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+submitBtn.addEventListener('click',addingDataLocalStorage(event))
+ 
+})
