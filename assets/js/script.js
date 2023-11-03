@@ -1,3 +1,12 @@
+var movieEntries=[]
+var movieObject={
+  movieTitle:"",
+  plot:"",
+  year:"",
+  linkForTrailer:"",
+  userComments:""
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
@@ -88,8 +97,17 @@ function getYoutube(title) {
       console.log(videoID)
       var trailerLink = document.querySelector('#youtube')
 
-      trailerLink.setAttribute('href', 'https://www.youtube.com/watch?v=' + videoID)
-
-
+      trailerLink.setAttribute('href', linkForTrailer)
+      var linkForTrailer='https://www.youtube.com/watch?v=' + videoID
     })
+}
+
+function addingDataLocalStorage(){
+  movieTitle
+  plot
+  year
+  linkForTrailer
+  userComments
+
+
 }
