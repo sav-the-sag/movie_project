@@ -31,30 +31,19 @@
                             data-target="modal-js-example">Search</button>
                         <p class="subtitle">With even more content</p>
                         <div class="content" id="search-history">
-                            <button class="button is-link">Movie 1</button>
-                            <button class="button is-link">Movie 2</button>
-
-                            <!-- Content - anchors  -->
+                            
                         </div>
                     </div>
                 </article>
             </div>
             <div class="tile is-vertical is-8 is-parent">
                 <article class="tile is-child notification is-info">
-                    <p class="title">Movie Title</p>
-                    <p>rating</p>
-                    <p>comments</p>
-                    <p>omdb plot description</p>
-                    <p>youtube trailer link</p>
-                    <figure class="image is-4by3">
-                    </figure>
-                </article>
-                <article class="tile is-child notification is-info">
-                    <p class="title">Modal</p>
-                    <p>rating</p>
-                    <p>comments</p>
-                    <p>omdb plot description</p>
-                    <p>youtube trailer link</p>
+                    <span id="movieName" class="title"></span>
+                    <span id="plotDescription"></span>
+                    <span id="yearReleased"></span>
+                    <span id="trailerLink"></span>
+                    <span id="userComments"></span>
+                    <span id="rating"></span>
                     <figure class="image is-4by3">
                     </figure>
                 </article>
@@ -66,7 +55,6 @@
             <div class="modal-content">
                 <div class="box">
                     <h2>Movie Info</h2>
-                    <!-- Your content -->
                     <span id="title"></span>
                     <br>
                     <span id="plot"></span>
@@ -74,7 +62,7 @@
                     <span id="year"></span>
                     <br>
                     <a id="youtube" href="">Click here for trailer</a>
-                    <textarea class="textarea" placeholder="Input Comments Here" rows="5"></textarea>
+                    <textarea id="userInputComments" class="textarea" placeholder="Input Comments Here" rows="5"></textarea>
                     <div class="control">
                         <label class="radio">
                             <input type="radio" name="rsvp">
@@ -103,22 +91,6 @@
 
             <button class="modal-close is-large" aria-label="close"></button>
         </div>
-        <!--<div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">Modal title</p>
-          <button class="delete" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-          
-        </section>
-        <footer class="modal-card-foot">
-          <button class="button is-success">Save changes</button>
-          <button class="button">Cancel</button>
-        </footer>
-      </div>
-    </div>-->
     </main>
 
     <script src="./assets/js/keys1.js"></script>
