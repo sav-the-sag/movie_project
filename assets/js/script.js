@@ -74,4 +74,14 @@ var getOmdb = function (title) {
     })
 }
 
+function getYoutube(title) {
+  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search&key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + 'movie trailer';
 
+  fetch(youtubeApiUrl)
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function (data) {
+      
+    })
+}
