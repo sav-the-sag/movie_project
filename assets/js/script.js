@@ -74,10 +74,10 @@ var getOmdb = function (title) {
       yearInfo.textContent = "Year released: " + year;
     })
 }
-var idk = 'movie trailer'
+
 
 function getYoutube(title) {
-  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + idk;
+  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + 'movie trailer';
 
   fetch(youtubeApiUrl)
     .then(function(response) {
@@ -86,6 +86,10 @@ function getYoutube(title) {
     .then(function (data) {
       var videoID = data.items[0].id.videoId
       console.log(videoID)
+      var trailerLink = document.querySelector('#youtube')
+
+      trailerLink.setAttribute('href', 'https://www.youtube.com/watch?v=' + videoID)
+
 
     })
 }
