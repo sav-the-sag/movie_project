@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       var title = titleInput.value;
       openModal($target);
       getOmdb(title);
+      getYoutube(title);
     });
   });
 
@@ -75,3 +76,20 @@ var getOmdb = function (title) {
 }
 
 
+function getYoutube(title) {
+  var youtubeApiUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + youtubeApiKey + '&part=snippet&type=video&maxResults=1&q=' + title + 'movie trailer';
+
+  fetch(youtubeApiUrl)
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function (data) {
+      var videoID = data.items[0].id.videoId
+      console.log(videoID)
+      var trailerLink = document.querySelector('#youtube')
+
+      trailerLink.setAttribute('href', 'https://www.youtube.com/watch?v=' + videoID)
+
+
+    })
+}
