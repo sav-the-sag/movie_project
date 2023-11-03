@@ -98,7 +98,8 @@ function getYoutube(title) {
       console.log(videoID)
       var trailerLink = document.querySelector('#youtube')
 
-      trailerLink.setAttribute('href', linkForTrailer)
+      trailerLink.setAttribute('href', linkForTrailer,)
+      
       linkForTrailer='https://www.youtube.com/watch?v=' + videoID
     })
 }
@@ -113,12 +114,25 @@ function addingDataLocalStorage(event){
   newMovie.linkForTrailer=linkForTrailer
   newMovie.userComments=userComments
   console.log(newMovie)
+  movieEntries.push(newMovie)
+  localStorage.setItem('movieEntries',JSON.stringify(movieEntries));
   
 }
 
 var submitBtn = document.querySelector('#submitBtn')
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
+  
+  function closeModal($el) {
+    $el.classList.remove('is-active');
+  }
+
+  function closeAllModals() {
+    (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+      closeModal($modal);
+    });
+  }
+  closeAllModals();
 submitBtn.addEventListener('click',addingDataLocalStorage(event))
  
 })
