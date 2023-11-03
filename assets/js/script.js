@@ -117,6 +117,7 @@ function addingDataLocalStorage(event){
   console.log(newMovie)
   movieEntries.push(newMovie)
   localStorage.setItem('movieEntries',JSON.stringify(movieEntries));
+  addSearchHistory();
   
 }
 
@@ -137,3 +138,11 @@ submitBtn.addEventListener('click', (event) => {
 submitBtn.addEventListener('click',addingDataLocalStorage(event))
  
 })
+
+function addSearchHistory(){
+  var newSearch=document.createElement('li');
+  newSearch.textContent=movieTitle;
+  document.querySelector("#search-history").appendChild(newSearch)
+
+  }
+
