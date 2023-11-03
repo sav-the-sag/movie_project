@@ -6,6 +6,7 @@ var movieObject={
   linkForTrailer:"",
   userComments:""
 }
+var linkForTrailer=""
 
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
@@ -97,10 +98,10 @@ function getYoutube(title) {
       var videoID = data.items[0].id.videoId
       console.log(videoID)
       var trailerLink = document.querySelector('#youtube')
-
-      trailerLink.setAttribute('href', linkForTrailer,)
+      linkForTrailer='https://www.youtube.com/watch?v='+videoID
+      trailerLink.setAttribute('href', linkForTrailer)
       
-      linkForTrailer='https://www.youtube.com/watch?v=' + videoID
+      
     })
 }
 
