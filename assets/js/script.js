@@ -61,6 +61,7 @@ var plot = "666"
 var year = ""
 var movieTitle = ""
 var linkForTrailer=""
+var userComments=""
 // create api function using fetch then return
 
 var getOmdb = function (title) {
@@ -107,7 +108,7 @@ function getYoutube(title) {
 
 function addingDataLocalStorage(event){
   event.preventDefault();  
-  var userComments=document.querySelector('#userInputComments').value;
+  userComments=document.querySelector('#userInputComments').value;
   var newMovie=Object.create(movieObject)
   newMovie.movieTitle=movieTitle
   newMovie.plot=plot
@@ -118,6 +119,7 @@ function addingDataLocalStorage(event){
   movieEntries.push(newMovie)
   localStorage.setItem('movieEntries',JSON.stringify(movieEntries));
   addSearchHistory();
+  addDataToCard();
   
 }
 
@@ -146,3 +148,12 @@ function addSearchHistory(){
 
   }
 
+  function addDataToCard(){
+    
+  document.querySelector("#movieName").textContent=movieTitle  
+  document.querySelector("#plotDescription").textContent=plot  
+  document.querySelector("#yearReleased").textContent=year  
+  document.querySelector("#trailerLink").textContent=linkForTrailer  
+  document.querySelector("#userComments").textContent=userComments  
+
+  }
