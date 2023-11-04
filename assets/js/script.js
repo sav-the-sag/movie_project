@@ -62,6 +62,7 @@ var year = ""
 var movieTitle = ""
 var linkForTrailer=""
 var userComments=""
+var videoID=""
 // create api function using fetch then return
 
 var getOmdb = function (title) {
@@ -96,7 +97,7 @@ function getYoutube(title) {
       return response.json()
     })
     .then(function (data) {
-      var videoID = data.items[0].id.videoId
+      videoID = data.items[0].id.videoId
       console.log(videoID)
       var trailerLink = document.querySelector('#youtube')
       linkForTrailer='https://www.youtube.com/watch?v='+videoID
@@ -152,8 +153,12 @@ function addSearchHistory(){
     
   document.querySelector("#movieName").textContent=movieTitle  
   document.querySelector("#plotDescription").textContent=plot  
-  document.querySelector("#yearReleased").textContent=year  
-  document.querySelector("#trailerLink").textContent=linkForTrailer  
+  document.querySelector("#yearReleased").textContent=year
+
+  var linking= document.getElementById("trailerLink")
+  linking.src='https://www.youtube.com/embed/'+videoID+'?autoplay=1'
+
+  //document.querySelector("#trailerLink").textContent=linkForTrailer  
   document.querySelector("#userComments").textContent=userComments  
 
   }
