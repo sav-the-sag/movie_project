@@ -66,7 +66,7 @@ var userComments=""
 
 var getOmdb = function (title) {
   //event.preventDefault();
-  var omdbApiUrl = "http://www.omdbapi.com/?apikey=" + omdbApiKey + "&t=" + title + "&type=movie&plot=short";
+  var omdbApiUrl = "https://www.omdbapi.com/?apikey=" + omdbApiKey + "&t=" + title + "&type=movie&plot=short";
 
   fetch(omdbApiUrl)
     .then(function (response) {
