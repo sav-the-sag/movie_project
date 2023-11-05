@@ -99,9 +99,10 @@ function getYoutube(title) {
     .then(function (data) {
       videoID = data.items[0].id.videoId
       console.log(videoID)
-      var trailerLink = document.querySelector('#youtube')
-      linkForTrailer='https://www.youtube.com/watch?v='+videoID
-      trailerLink.setAttribute('href', linkForTrailer)
+      var trailerLink = document.querySelector('#modaltrailerLink')
+      linkForTrailer='https://www.youtube.com/embed/'+videoID+'?autoplay=1'
+      trailerLink.src = linkForTrailer
+      
       
       
     })
@@ -143,11 +144,29 @@ submitBtn.addEventListener('click',addingDataLocalStorage(event))
 })
 
 function addSearchHistory(){
-  var newSearch=document.createElement('li');
+  var newSearch=document.createElement('button');
   newSearch.textContent=movieTitle;
+  newSearch.setAttribute('movieNameAtt',movieTitle)
+  newSearch.setAttribute('class', 'button is-fullwidth')
   document.querySelector("#search-history").appendChild(newSearch)
-
+ 
   }
+
+  document.querySelector('#search-history').addEventListener('click', function(event) {
+    var clickedButton = event.target;
+    var movieNameAtt = clickedButton.getAttribute('movieNameAtt')
+    var movieStore = JSON.parse(localStorage.getItem('movieEntries'))
+    for(i=0; i<movieStore.length; i++) {
+      if (movieNameAtt == movieStore[i].movieTitle) {
+        movieTitle = movieStore[i].movieTitle;
+        plot = movieStore[i].plot;
+        year = movieStore[i].year;
+        linkForTrailer = movieStore[i].linkForTrailer
+        userComments = movieStore[i].userComments
+        addDataToCard();
+      }
+    }
+  })
 
   function addDataToCard(){
     
@@ -156,9 +175,9 @@ function addSearchHistory(){
   document.querySelector("#yearReleased").textContent=year
 
   var linking= document.getElementById("trailerLink")
-  linking.src='https://www.youtube.com/embed/'+videoID+'?autoplay=1'
 
-  //document.querySelector("#trailerLink").textContent=linkForTrailer  
+  linking.src= linkForTrailer
+ 
   document.querySelector("#userComments").textContent=userComments  
 
   }
